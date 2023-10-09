@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Transaction represents a single transaction.
+
 type Transaction struct {
 	Sender    string
 	Receiver  string
@@ -15,7 +15,7 @@ type Transaction struct {
 	Timestamp string
 }
 
-// Block represents a single block in the blockchain.
+
 type Block struct {
 	Index         int
 	Timestamp     string
@@ -25,10 +25,10 @@ type Block struct {
 	Hash          string
 }
 
-// Blockchain represents the blockchain as a slice of blocks.
+
 var Blockchain []Block
 
-const difficulty = 2 // Number of leading zeros required in the hash (difficulty level)
+const difficulty = 2 
 
 func calculateHash(block Block) string {
 	record := string(block.Index) + block.Timestamp + block.PrevHash
@@ -61,7 +61,6 @@ func mineBlock(transactions []Transaction, previousHash string) *Block {
 		newBlock = createBlock(transactions, nonce, previousHash)
 		hash := calculateHash(*newBlock)
 
-		// Simulate mining by requiring the hash to start with leading zeros
 		if hash[:difficulty] == "00" {
 			break
 		}
@@ -204,3 +203,5 @@ func main() {
 		}
 	}
 }
+
+//path : HamdaMustafa/assignment01bca
